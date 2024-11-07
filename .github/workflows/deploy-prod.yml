@@ -1,0 +1,37 @@
+name: Deploy prod
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: prod
+      cancel-in-progress: true
+    steps:
+      - name: SSH Deploy
+        # Use the 'appleboy/ssh-action' action for SSH deployment
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_HOST }} # Your server's IP address
+          username: ${{ secrets.PROD_USERNAME }} # Your server's username
+          key: ${{ secrets.PROD_SSH_PRIVATE_KEY }} # Your server's SSH private key
+          command: source ~/.nvm/nvm.sh; ~/deploy-next.sh
+
+          # - name: SSH Command
+          # cd /path/to/your/application/directory # Specify the path to your app directory on the server
+          # git pull
+          # npm install
+          # npm run build
+          # pm2 restart your-pm2-service-name # Replace with your PM2 service name
+          #   uses: D3rHase/ssh-command-action@v0.2.2
+          #   with:
+          #      # hostname / IP of the server
+          #      host: ${{ secrets.PROD_SSH_HOST }}
+          #      user: ${{ secrets.PROD_SSH_USERNAME }}
+          #      private_key: ${{ secrets.PROD_SSH_PRIVATE_KEY }}
+          #      host_fingerprint: ${{ secrets.PROD_SSH_FINGERPRINT }}
+          #      command: source ~/.nvm/nvm.sh; ~/deploy.sh
