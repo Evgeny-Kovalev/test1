@@ -22,7 +22,7 @@ export const Header = async () => {
 					<ul className="hidden text-sm md:block">
 						<li className="mb-1 flex items-center">
 							<Clock className="mr-3 h-full max-h-4 w-full max-w-4 self-center " />
-							<span>Вт-Пт: 11:00 - 19:00</span>
+							<span>Вт-Пт: 11:00 - 18:00</span>
 						</li>
 						<li className="flex items-center">
 							<Clock className="mr-3 h-full max-h-4 w-full max-w-4 self-center " />
