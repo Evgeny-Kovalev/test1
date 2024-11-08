@@ -94,7 +94,7 @@ export default function RootLayout({
 		<html lang="ru">
 			<body>
 				<Header />
-				<h3>TEST CD v44</h3>
+				<h3>TEST CD v44 - HOT FIX</h3>
 				<div className="min-h-[500px] bg-muted/40 pb-14">{children}</div>
 				<div className="bg-gray-900 text-gray-100">
 					<Footer />
