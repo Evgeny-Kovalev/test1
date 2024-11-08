@@ -19,7 +19,7 @@ jobs:
           host: ${{ secrets.PROD_HOST }} # Your server's IP address
           username: ${{ secrets.PROD_USERNAME }} # Your server's username
           key: ${{ secrets.PROD_SSH_PRIVATE_KEY }} # Your server's SSH private key
-          command: source ~/.nvm/nvm.sh; ~/deploy-next.sh
+          script: source ~/.nvm/nvm.sh; ~/deploy-next.sh
 
           # - name: SSH Command
           # cd /path/to/your/application/directory # Specify the path to your app directory on the server
